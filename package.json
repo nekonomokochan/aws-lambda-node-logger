@@ -1,0 +1,19 @@
+{
+  "name": "aws-lambda-node-logger",
+  "version": "1.0.0",
+  "description": "Logging library for AWS Lambda",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nekonomokochan/aws-lambda-node-logger.git"
+  },
+  "author": "keitakn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nekonomokochan/aws-lambda-node-logger/issues"
+  },
+  "homepage": "https://github.com/nekonomokochan/aws-lambda-node-logger#readme"
+}
