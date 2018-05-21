@@ -1,2 +1,2 @@
-# aws-lambda-logger
-Logger that can be used with AWS Lambda
+# aws-lambda-node-logger
+Logging library for AWS Lambda
