@@ -12,7 +12,7 @@ describe("LambdaLogger", () => {
         price: 3000,
         user: {
           id: 999,
-          name: "keita",
+          name: "keita"
         }
       },
       func: (value: number) => {
