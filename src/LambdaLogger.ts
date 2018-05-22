@@ -13,15 +13,18 @@ export class LambdaLogger {
    * 0 Emergency (RFC5424)
    * system is unusable
    *
-   * @param {Error} error
+   * @param value
    * @returns {LambdaLogOutput}
    */
-  static emergency(error: Error): LambdaLogOutput {
-    const result = `EMERGENCY \n ${util.inspect(error, false, null)}`;
-    console.log(result);
+  static emergency(value: any): LambdaLogOutput {
+    const logLevel = "EMERGENCY";
+    const contents = LambdaLogger.createLogContents(logLevel, value);
+
+    LambdaLogger.log(contents);
+
     return {
-      logLevel: "EMERGENCY",
-      content: result
+      logLevel,
+      content: contents
     };
   }
 
@@ -66,4 +69,20 @@ export class LambdaLogger {
    * debug-level messages
    */
   static debug() {}
+
+  /**
+   * @param {string} contents
+   */
+  private static log(contents: string) {
+    console.log(contents);
+  }
+
+  /**
+   * @param {string} logLevel
+   * @param value
+   * @returns {string}
+   */
+  private static createLogContents(logLevel: string, value: any): string {
+    return `${logLevel} \n ${util.inspect(value, false, null)}`;
+  }
 }
