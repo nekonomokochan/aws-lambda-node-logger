@@ -1,13 +1,15 @@
 {
-  "name": "aws-lambda-node-logger",
+  "name": "@nekonomokochan/aws-lambda-node-logger",
   "version": "0.0.1",
   "description": "Logging library for AWS Lambda",
-  "main": "index.js",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "test": "jest --config=jest.config.json",
     "test:coverage": "jest --config=jest.config.json --collectCoverage=true",
     "tslint": "tslint --project tsconfig.json --config tslint.json 'src/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
-    "format": "tslint --project tsconfig.json --config tslint.json --fix 'src/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'"
+    "format": "tslint --project tsconfig.json --config tslint.json --fix 'src/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
+    "build": "rm -rf dist && tsc"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   "homepage": "https://github.com/nekonomokochan/aws-lambda-node-logger#readme",
   "devDependencies": {
     "@types/jest": "^22.2.3",
+    "@types/node": "^10.1.2",
     "jest": "^22.4.4",
     "prettier": "^1.12.1",
     "ts-jest": "^22.4.6",

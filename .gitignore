@@ -60,3 +60,6 @@ typings/
 # IDEA setting files
 .idea
 aws-lambda-node-logger.iml
+
+# TypeScript Output dir
+dist
