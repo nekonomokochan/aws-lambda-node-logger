@@ -1,3 +1,5 @@
+import * as util from "util";
+
 /**
  * AwsLambdaNodeLogger
  *
@@ -10,7 +12,9 @@ export default class AwsLambdaNodeLogger {
    * 0 Emergency (RFC5424)
    * system is unusable
    */
-  emergency() {
+  static emergency(error: Error) {
+    const result = `EMERGENCY \n ${util.inspect(error, false, null)}`;
+    console.log(result);
     return "EMERGENCY";
   }
 
@@ -18,41 +22,41 @@ export default class AwsLambdaNodeLogger {
    * 1 Alert (RFC5424)
    * action must be taken immediately
    */
-  alert() {}
+  static alert() {}
 
   /**
    * 2 Critical (RFC5424)
    * critical conditions
    */
-  critical() {}
+  static critical() {}
 
   /**
    * 3 Error (RFC5424)
    * error conditions
    */
-  error() {}
+  static error() {}
 
   /**
    * 4 Warning (RFC5424)
    * warning conditions
    */
-  warning() {}
+  static warning() {}
 
   /**
    * 5 Notice (RFC5424)
    * normal but significant condition
    */
-  notice() {}
+  static notice() {}
 
   /**
    * 6 Informational (RFC5424)
    * informational messages
    */
-  informational() {}
+  static informational() {}
 
   /**
    * 7 Debug (RFC5424)
    * debug-level messages
    */
-  debug() {}
+  static debug() {}
 }
