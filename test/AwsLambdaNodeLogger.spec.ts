@@ -1,4 +1,4 @@
-import AwsLambdaNodeLogger from "src/AwsLambdaNodeLogger";
+import AwsLambdaNodeLogger from "../src/AwsLambdaNodeLogger";
 import CustomError from "./lib/CustomError";
 import * as util from "util";
 
