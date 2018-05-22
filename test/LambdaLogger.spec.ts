@@ -22,9 +22,9 @@ describe("LambdaLogger", () => {
 
     const logOutput = LambdaLogger.emergency(error);
 
-    const expectedContent = `EMERGENCY \n ${util.inspect(error, false, null)}`;
+    const expectedContents = `EMERGENCY \n ${util.inspect(error, false, null)}`;
 
     expect(logOutput.logLevel).toBe("EMERGENCY");
-    expect(logOutput.contents).toBe(expectedContent);
+    expect(logOutput.contents).toBe(expectedContents);
   });
 });
