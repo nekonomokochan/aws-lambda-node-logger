@@ -1,8 +1,9 @@
 {
-  "name": "aws-lambda-node-logger",
+  "name": "@nekonomokochan/aws-lambda-node-logger",
   "version": "0.0.1",
   "description": "Logging library for AWS Lambda",
-  "main": "index.js",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "test": "jest --config=jest.config.json",
     "test:coverage": "jest --config=jest.config.json --collectCoverage=true",
