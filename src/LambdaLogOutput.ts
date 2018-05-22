@@ -3,5 +3,5 @@
  */
 export interface LambdaLogOutput {
   logLevel: string;
-  content: string;
+  contents: string;
 }

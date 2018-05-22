@@ -24,7 +24,7 @@ export class LambdaLogger {
 
     return {
       logLevel,
-      content: contents
+      contents
     };
   }
 

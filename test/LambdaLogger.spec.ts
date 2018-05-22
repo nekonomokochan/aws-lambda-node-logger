@@ -25,6 +25,6 @@ describe("LambdaLogger", () => {
     const expectedContent = `EMERGENCY \n ${util.inspect(error, false, null)}`;
 
     expect(logOutput.logLevel).toBe("EMERGENCY");
-    expect(logOutput.content).toBe(expectedContent);
+    expect(logOutput.contents).toBe(expectedContent);
   });
 });
