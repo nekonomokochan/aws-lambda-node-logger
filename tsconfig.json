@@ -17,6 +17,7 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "newLine": "LF",
+    "declaration": true,
     "lib": [
       "es2015",
       "es2016",
