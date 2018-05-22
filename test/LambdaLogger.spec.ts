@@ -7,7 +7,14 @@ describe("LambdaLogger", () => {
     const error = new CustomError("should be able to output Emergency logs");
     error.optionalObject = {
       list: [1, 2, 3, 4],
-      object: { title: "test", price: 3000 },
+      object: {
+        title: "test",
+        price: 3000,
+        user: {
+          id: 999,
+          name: "keita",
+        }
+      },
       func: (value: number) => {
         return value * 3;
       }
