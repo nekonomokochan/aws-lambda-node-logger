@@ -1,29 +1,22 @@
 import * as util from "util";
+import { LambdaLogOutput } from "./LambdaLogOutput";
 
 /**
- * AwsLambdaNodeLogger Output Interface
- */
-export interface AwsLambdaNodeLoggerOutput {
-  logLevel: string;
-  content: string;
-}
-
-/**
- * AwsLambdaNodeLogger
+ * LambdaLogger
  *
  * @author https://github.com/keitakn
  * @since 2018-05-23
  * @link https://tools.ietf.org/html/rfc5424
  */
-export default class AwsLambdaNodeLogger {
+export class LambdaLogger {
   /**
    * 0 Emergency (RFC5424)
    * system is unusable
    *
    * @param {Error} error
-   * @returns {AwsLambdaNodeLoggerOutput}
+   * @returns {LambdaLogOutput}
    */
-  static emergency(error: Error): AwsLambdaNodeLoggerOutput {
+  static emergency(error: Error): LambdaLogOutput {
     const result = `EMERGENCY \n ${util.inspect(error, false, null)}`;
     console.log(result);
     return {

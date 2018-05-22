@@ -1,8 +1,8 @@
-import AwsLambdaNodeLogger from "../src/AwsLambdaNodeLogger";
+import { LambdaLogger } from "../src/index";
 import CustomError from "./lib/CustomError";
 import * as util from "util";
 
-describe("AwsLambdaNodeLogger", () => {
+describe("LambdaLogger", () => {
   it("should be able to output Emergency logs", () => {
     const error = new CustomError("should be able to output Emergency logs");
     error.optionalObject = {
@@ -13,11 +13,11 @@ describe("AwsLambdaNodeLogger", () => {
       }
     };
 
-    const result = AwsLambdaNodeLogger.emergency(error);
+    const logOutput = LambdaLogger.emergency(error);
 
     const expectedContent = `EMERGENCY \n ${util.inspect(error, false, null)}`;
 
-    expect(result.logLevel).toBe("EMERGENCY");
-    expect(result.content).toBe(expectedContent);
+    expect(logOutput.logLevel).toBe("EMERGENCY");
+    expect(logOutput.content).toBe(expectedContent);
   });
 });
