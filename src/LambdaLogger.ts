@@ -31,8 +31,21 @@ export class LambdaLogger {
   /**
    * 1 Alert (RFC5424)
    * action must be taken immediately
+   *
+   * @param value
+   * @returns {LambdaLogOutput}
    */
-  static alert() {}
+  static alert(value: any): LambdaLogOutput {
+    const logLevel = "ALERT";
+    const contents = LambdaLogger.createLogContents(logLevel, value);
+
+    LambdaLogger.log(contents);
+
+    return {
+      logLevel,
+      contents
+    };
+  }
 
   /**
    * 2 Critical (RFC5424)

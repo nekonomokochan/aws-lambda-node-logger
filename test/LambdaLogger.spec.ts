@@ -27,4 +27,15 @@ describe("LambdaLogger", () => {
     expect(logOutput.logLevel).toBe("EMERGENCY");
     expect(logOutput.contents).toBe(expectedContents);
   });
+
+  it("should be able to output Alert logs", () => {
+    const message = "hello";
+
+    const logOutput = LambdaLogger.alert(message);
+
+    const expectedContents = `ALERT \n ${util.inspect(message, false, null)}`;
+
+    expect(logOutput.logLevel).toBe("ALERT");
+    expect(logOutput.contents).toBe(expectedContents);
+  });
 });
