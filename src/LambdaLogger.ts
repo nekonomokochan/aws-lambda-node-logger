@@ -50,38 +50,116 @@ export class LambdaLogger {
   /**
    * 2 Critical (RFC5424)
    * critical conditions
+   *
+   * @param value
+   * @returns {LambdaLogOutput}
    */
-  static critical() {}
+  static critical(value: any): LambdaLogOutput {
+    const logLevel = "CRITICAL";
+    const contents = LambdaLogger.createLogContents(logLevel, value);
+
+    LambdaLogger.log(contents);
+
+    return {
+      logLevel,
+      contents
+    };
+  }
 
   /**
    * 3 Error (RFC5424)
    * error conditions
+   *
+   * @param value
+   * @returns {LambdaLogOutput}
    */
-  static error() {}
+  static error(value: any): LambdaLogOutput {
+    const logLevel = "ERROR";
+    const contents = LambdaLogger.createLogContents(logLevel, value);
+
+    LambdaLogger.log(contents);
+
+    return {
+      logLevel,
+      contents
+    };
+  }
 
   /**
    * 4 Warning (RFC5424)
    * warning conditions
+   *
+   * @param value
+   * @returns {LambdaLogOutput}
    */
-  static warning() {}
+  static warning(value: any): LambdaLogOutput {
+    const logLevel = "WARNING";
+    const contents = LambdaLogger.createLogContents(logLevel, value);
+
+    LambdaLogger.log(contents);
+
+    return {
+      logLevel,
+      contents
+    };
+  }
 
   /**
    * 5 Notice (RFC5424)
    * normal but significant condition
+   *
+   * @param value
+   * @returns {LambdaLogOutput}
    */
-  static notice() {}
+  static notice(value: any): LambdaLogOutput {
+    const logLevel = "NOTICE";
+    const contents = LambdaLogger.createLogContents(logLevel, value);
+
+    LambdaLogger.log(contents);
+
+    return {
+      logLevel,
+      contents
+    };
+  }
 
   /**
    * 6 Informational (RFC5424)
    * informational messages
+   *
+   * @param value
+   * @returns {LambdaLogOutput}
    */
-  static informational() {}
+  static informational(value: any): LambdaLogOutput {
+    const logLevel = "INFORMATIONAL";
+    const contents = LambdaLogger.createLogContents(logLevel, value);
+
+    LambdaLogger.log(contents);
+
+    return {
+      logLevel,
+      contents
+    };
+  }
 
   /**
    * 7 Debug (RFC5424)
    * debug-level messages
+   *
+   * @param value
+   * @returns {LambdaLogOutput}
    */
-  static debug() {}
+  static debug(value: any): LambdaLogOutput {
+    const logLevel = "DEBUG";
+    const contents = LambdaLogger.createLogContents(logLevel, value);
+
+    LambdaLogger.log(contents);
+
+    return {
+      logLevel,
+      contents
+    };
+  }
 
   /**
    * @param {string} contents

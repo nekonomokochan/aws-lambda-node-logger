@@ -38,4 +38,78 @@ describe("LambdaLogger", () => {
     expect(logOutput.logLevel).toBe("ALERT");
     expect(logOutput.contents).toBe(expectedContents);
   });
+
+  it("should be able to output Critical logs", () => {
+    const message = "hello";
+
+    const logOutput = LambdaLogger.critical(message);
+
+    const expectedContents = `CRITICAL \n ${util.inspect(
+      message,
+      false,
+      null
+    )}`;
+
+    expect(logOutput.logLevel).toBe("CRITICAL");
+    expect(logOutput.contents).toBe(expectedContents);
+  });
+
+  it("should be able to output Error logs", () => {
+    const message = "hello";
+
+    const logOutput = LambdaLogger.error(message);
+
+    const expectedContents = `ERROR \n ${util.inspect(message, false, null)}`;
+
+    expect(logOutput.logLevel).toBe("ERROR");
+    expect(logOutput.contents).toBe(expectedContents);
+  });
+
+  it("should be able to output Warning logs", () => {
+    const message = "hello";
+
+    const logOutput = LambdaLogger.warning(message);
+
+    const expectedContents = `WARNING \n ${util.inspect(message, false, null)}`;
+
+    expect(logOutput.logLevel).toBe("WARNING");
+    expect(logOutput.contents).toBe(expectedContents);
+  });
+
+  it("should be able to output Notice logs", () => {
+    const message = "hello";
+
+    const logOutput = LambdaLogger.notice(message);
+
+    const expectedContents = `NOTICE \n ${util.inspect(message, false, null)}`;
+
+    expect(logOutput.logLevel).toBe("NOTICE");
+    expect(logOutput.contents).toBe(expectedContents);
+  });
+
+  it("should be able to output Informational logs", () => {
+    const message = "hello";
+
+    const logOutput = LambdaLogger.informational(message);
+
+    const expectedContents = `INFORMATIONAL \n ${util.inspect(
+      message,
+      false,
+      null
+    )}`;
+
+    expect(logOutput.logLevel).toBe("INFORMATIONAL");
+    expect(logOutput.contents).toBe(expectedContents);
+  });
+
+  it("should be able to output Debug logs", () => {
+    const messages = ["hello", "world"];
+
+    const logOutput = LambdaLogger.debug(messages);
+
+    const expectedContents = `DEBUG \n ${util.inspect(messages, false, null)}`;
+
+    expect(logOutput.logLevel).toBe("DEBUG");
+    expect(logOutput.contents).toBe(expectedContents);
+  });
 });
