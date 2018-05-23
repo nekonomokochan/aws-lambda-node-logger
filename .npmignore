@@ -3,3 +3,6 @@ dist/test
 .idea
 aws-lambda-node-logger.iml
 coverage
+src
+.gitignore
+.git
