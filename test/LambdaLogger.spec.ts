@@ -22,10 +22,10 @@ describe("LambdaLogger", () => {
 
     const logOutput = LambdaLogger.emergency(error);
 
-    const expectedContents = `EMERGENCY \n ${util.inspect(error, false, null)}`;
+    const expectedContext = `EMERGENCY \n ${util.inspect(error, false, null)}`;
 
     expect(logOutput.logLevel).toBe("EMERGENCY");
-    expect(logOutput.contents).toBe(expectedContents);
+    expect(logOutput.context).toBe(expectedContext);
   });
 
   it("should be able to output Alert logs", () => {
@@ -33,10 +33,10 @@ describe("LambdaLogger", () => {
 
     const logOutput = LambdaLogger.alert(message);
 
-    const expectedContents = `ALERT \n ${util.inspect(message, false, null)}`;
+    const expectedContext = `ALERT \n ${util.inspect(message, false, null)}`;
 
     expect(logOutput.logLevel).toBe("ALERT");
-    expect(logOutput.contents).toBe(expectedContents);
+    expect(logOutput.context).toBe(expectedContext);
   });
 
   it("should be able to output Critical logs", () => {
@@ -44,14 +44,10 @@ describe("LambdaLogger", () => {
 
     const logOutput = LambdaLogger.critical(message);
 
-    const expectedContents = `CRITICAL \n ${util.inspect(
-      message,
-      false,
-      null
-    )}`;
+    const expectedContext = `CRITICAL \n ${util.inspect(message, false, null)}`;
 
     expect(logOutput.logLevel).toBe("CRITICAL");
-    expect(logOutput.contents).toBe(expectedContents);
+    expect(logOutput.context).toBe(expectedContext);
   });
 
   it("should be able to output Error logs", () => {
@@ -59,10 +55,10 @@ describe("LambdaLogger", () => {
 
     const logOutput = LambdaLogger.error(message);
 
-    const expectedContents = `ERROR \n ${util.inspect(message, false, null)}`;
+    const expectedContext = `ERROR \n ${util.inspect(message, false, null)}`;
 
     expect(logOutput.logLevel).toBe("ERROR");
-    expect(logOutput.contents).toBe(expectedContents);
+    expect(logOutput.context).toBe(expectedContext);
   });
 
   it("should be able to output Warning logs", () => {
@@ -70,10 +66,10 @@ describe("LambdaLogger", () => {
 
     const logOutput = LambdaLogger.warning(message);
 
-    const expectedContents = `WARNING \n ${util.inspect(message, false, null)}`;
+    const expectedContext = `WARNING \n ${util.inspect(message, false, null)}`;
 
     expect(logOutput.logLevel).toBe("WARNING");
-    expect(logOutput.contents).toBe(expectedContents);
+    expect(logOutput.context).toBe(expectedContext);
   });
 
   it("should be able to output Notice logs", () => {
@@ -81,10 +77,10 @@ describe("LambdaLogger", () => {
 
     const logOutput = LambdaLogger.notice(message);
 
-    const expectedContents = `NOTICE \n ${util.inspect(message, false, null)}`;
+    const expectedContext = `NOTICE \n ${util.inspect(message, false, null)}`;
 
     expect(logOutput.logLevel).toBe("NOTICE");
-    expect(logOutput.contents).toBe(expectedContents);
+    expect(logOutput.context).toBe(expectedContext);
   });
 
   it("should be able to output Informational logs", () => {
@@ -92,14 +88,14 @@ describe("LambdaLogger", () => {
 
     const logOutput = LambdaLogger.informational(message);
 
-    const expectedContents = `INFORMATIONAL \n ${util.inspect(
+    const expectedContext = `INFORMATIONAL \n ${util.inspect(
       message,
       false,
       null
     )}`;
 
     expect(logOutput.logLevel).toBe("INFORMATIONAL");
-    expect(logOutput.contents).toBe(expectedContents);
+    expect(logOutput.context).toBe(expectedContext);
   });
 
   it("should be able to output Debug logs", () => {
@@ -107,9 +103,9 @@ describe("LambdaLogger", () => {
 
     const logOutput = LambdaLogger.debug(messages);
 
-    const expectedContents = `DEBUG \n ${util.inspect(messages, false, null)}`;
+    const expectedContext = `DEBUG \n ${util.inspect(messages, false, null)}`;
 
     expect(logOutput.logLevel).toBe("DEBUG");
-    expect(logOutput.contents).toBe(expectedContents);
+    expect(logOutput.context).toBe(expectedContext);
   });
 });

@@ -18,13 +18,13 @@ export class LambdaLogger {
    */
   static emergency(value: any): LambdaLogOutput {
     const logLevel = "EMERGENCY";
-    const contents = LambdaLogger.createContext(logLevel, value);
+    const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(contents);
+    LambdaLogger.log(context);
 
     return {
       logLevel,
-      contents
+      context
     };
   }
 
@@ -37,13 +37,13 @@ export class LambdaLogger {
    */
   static alert(value: any): LambdaLogOutput {
     const logLevel = "ALERT";
-    const contents = LambdaLogger.createContext(logLevel, value);
+    const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(contents);
+    LambdaLogger.log(context);
 
     return {
       logLevel,
-      contents
+      context
     };
   }
 
@@ -56,13 +56,13 @@ export class LambdaLogger {
    */
   static critical(value: any): LambdaLogOutput {
     const logLevel = "CRITICAL";
-    const contents = LambdaLogger.createContext(logLevel, value);
+    const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(contents);
+    LambdaLogger.log(context);
 
     return {
       logLevel,
-      contents
+      context
     };
   }
 
@@ -75,13 +75,13 @@ export class LambdaLogger {
    */
   static error(value: any): LambdaLogOutput {
     const logLevel = "ERROR";
-    const contents = LambdaLogger.createContext(logLevel, value);
+    const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(contents);
+    LambdaLogger.log(context);
 
     return {
       logLevel,
-      contents
+      context
     };
   }
 
@@ -94,13 +94,13 @@ export class LambdaLogger {
    */
   static warning(value: any): LambdaLogOutput {
     const logLevel = "WARNING";
-    const contents = LambdaLogger.createContext(logLevel, value);
+    const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(contents);
+    LambdaLogger.log(context);
 
     return {
       logLevel,
-      contents
+      context
     };
   }
 
@@ -113,13 +113,13 @@ export class LambdaLogger {
    */
   static notice(value: any): LambdaLogOutput {
     const logLevel = "NOTICE";
-    const contents = LambdaLogger.createContext(logLevel, value);
+    const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(contents);
+    LambdaLogger.log(context);
 
     return {
       logLevel,
-      contents
+      context
     };
   }
 
@@ -132,13 +132,13 @@ export class LambdaLogger {
    */
   static informational(value: any): LambdaLogOutput {
     const logLevel = "INFORMATIONAL";
-    const contents = LambdaLogger.createContext(logLevel, value);
+    const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(contents);
+    LambdaLogger.log(context);
 
     return {
       logLevel,
-      contents
+      context
     };
   }
 
@@ -151,21 +151,21 @@ export class LambdaLogger {
    */
   static debug(value: any): LambdaLogOutput {
     const logLevel = "DEBUG";
-    const contents = LambdaLogger.createContext(logLevel, value);
+    const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(contents);
+    LambdaLogger.log(context);
 
     return {
       logLevel,
-      contents
+      context
     };
   }
 
   /**
-   * @param {string} contents
+   * @param {string} context
    */
-  private static log(contents: string) {
-    console.log(contents);
+  private static log(context: string) {
+    console.log(context);
   }
 
   /**
