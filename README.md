@@ -65,3 +65,30 @@ START RequestId: 1e46b449-6571-11e8-8af3-e7d42a6dbde1 Version: $LATEST
 END RequestId: 1e46b449-6571-11e8-8af3-e7d42a6dbde1
 REPORT RequestId: 1e46b449-6571-11e8-8af3-e7d42a6dbde1	Duration: 0.94 ms	Billed Duration: 100 ms 	Memory Size: 1024 MB	Max Memory Used: 22 MB
 ```
+
+### Use With JavaScript
+
+```javascript
+'use strict';
+
+const awsLambdaNodeLogger = require("@nekonomokochan/aws-lambda-node-logger");
+
+module.exports.jsTest = (event, context, callback) => {
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'JavaScript Test',
+      input: event,
+    }),
+  };
+
+  const error = new Error("JavaScript Error Test");
+
+  awsLambdaNodeLogger.LambdaLogger.debug(response);
+  awsLambdaNodeLogger.LambdaLogger.error(error);
+
+  callback(null, response);
+};
+```
+
+output is the same as TypeScript.
