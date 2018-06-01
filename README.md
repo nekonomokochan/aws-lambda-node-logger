@@ -11,7 +11,7 @@ Logging library for AWS Lambda
 
 ### `npm`
 
-`npm i @nekonomokochan/aws-lambda-node-logger`
+`npm install --save @nekonomokochan/aws-lambda-node-logger`
 
 ## How To Use
 
