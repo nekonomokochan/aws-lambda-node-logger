@@ -18,7 +18,7 @@ export class LambdaLogger {
    */
   static emergency(value: any): LambdaLogOutput {
     const logLevel = "EMERGENCY";
-    const contents = LambdaLogger.createLogContents(logLevel, value);
+    const contents = LambdaLogger.createContext(logLevel, value);
 
     LambdaLogger.log(contents);
 
@@ -37,7 +37,7 @@ export class LambdaLogger {
    */
   static alert(value: any): LambdaLogOutput {
     const logLevel = "ALERT";
-    const contents = LambdaLogger.createLogContents(logLevel, value);
+    const contents = LambdaLogger.createContext(logLevel, value);
 
     LambdaLogger.log(contents);
 
@@ -56,7 +56,7 @@ export class LambdaLogger {
    */
   static critical(value: any): LambdaLogOutput {
     const logLevel = "CRITICAL";
-    const contents = LambdaLogger.createLogContents(logLevel, value);
+    const contents = LambdaLogger.createContext(logLevel, value);
 
     LambdaLogger.log(contents);
 
@@ -75,7 +75,7 @@ export class LambdaLogger {
    */
   static error(value: any): LambdaLogOutput {
     const logLevel = "ERROR";
-    const contents = LambdaLogger.createLogContents(logLevel, value);
+    const contents = LambdaLogger.createContext(logLevel, value);
 
     LambdaLogger.log(contents);
 
@@ -94,7 +94,7 @@ export class LambdaLogger {
    */
   static warning(value: any): LambdaLogOutput {
     const logLevel = "WARNING";
-    const contents = LambdaLogger.createLogContents(logLevel, value);
+    const contents = LambdaLogger.createContext(logLevel, value);
 
     LambdaLogger.log(contents);
 
@@ -113,7 +113,7 @@ export class LambdaLogger {
    */
   static notice(value: any): LambdaLogOutput {
     const logLevel = "NOTICE";
-    const contents = LambdaLogger.createLogContents(logLevel, value);
+    const contents = LambdaLogger.createContext(logLevel, value);
 
     LambdaLogger.log(contents);
 
@@ -132,7 +132,7 @@ export class LambdaLogger {
    */
   static informational(value: any): LambdaLogOutput {
     const logLevel = "INFORMATIONAL";
-    const contents = LambdaLogger.createLogContents(logLevel, value);
+    const contents = LambdaLogger.createContext(logLevel, value);
 
     LambdaLogger.log(contents);
 
@@ -151,7 +151,7 @@ export class LambdaLogger {
    */
   static debug(value: any): LambdaLogOutput {
     const logLevel = "DEBUG";
-    const contents = LambdaLogger.createLogContents(logLevel, value);
+    const contents = LambdaLogger.createContext(logLevel, value);
 
     LambdaLogger.log(contents);
 
@@ -173,7 +173,7 @@ export class LambdaLogger {
    * @param value
    * @returns {string}
    */
-  private static createLogContents(logLevel: string, value: any): string {
+  private static createContext(logLevel: string, value: any): string {
     return `${logLevel} \n ${util.inspect(value, false, null)}`;
   }
 }
