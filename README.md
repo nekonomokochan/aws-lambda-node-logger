@@ -71,7 +71,7 @@ REPORT RequestId: 1e46b449-6571-11e8-8af3-e7d42a6dbde1	Duration: 0.94 ms	Billed 
 ```javascript
 'use strict';
 
-const awsLambdaNodeLogger = require("@nekonomokochan/aws-lambda-node-logger");
+const awsLambdaNodeLogger = require('@nekonomokochan/aws-lambda-node-logger');
 
 module.exports.jsTest = (event, context, callback) => {
   const response = {
@@ -82,7 +82,7 @@ module.exports.jsTest = (event, context, callback) => {
     }),
   };
 
-  const error = new Error("JavaScript Error Test");
+  const error = new Error('JavaScript Error Test');
 
   awsLambdaNodeLogger.LambdaLogger.debug(response);
   awsLambdaNodeLogger.LambdaLogger.error(error);
