@@ -15,6 +15,12 @@
     "type": "git",
     "url": "git+https://github.com/nekonomokochan/aws-lambda-node-logger.git"
   },
+  "keywords": [
+    "lambda",
+    "aws",
+    "log",
+    "logger"
+  ],
   "author": "keitakn",
   "license": "MIT",
   "bugs": {
