@@ -96,3 +96,6 @@ module.exports.jsTest = (event, context, callback) => {
 ```
 
 output is the same as TypeScript.
+
+## License
+MIT
