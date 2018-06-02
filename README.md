@@ -21,7 +21,7 @@ Logging library for AWS Lambda
 
 ### Use With TypeScript
 
-```
+```typescript
 import * as lambda from "aws-lambda";
 import { LambdaLogger } from "@nekonomokochan/aws-lambda-node-logger";
 
