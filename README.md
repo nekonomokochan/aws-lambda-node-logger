@@ -1,4 +1,8 @@
 # aws-lambda-node-logger
+
+[![npm version](https://badge.fury.io/js/%40nekonomokochan%2Faws-lambda-node-logger.svg)](https://badge.fury.io/js/%40nekonomokochan%2Faws-lambda-node-logger)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Logging library for AWS Lambda
 
 ## Getting Started
