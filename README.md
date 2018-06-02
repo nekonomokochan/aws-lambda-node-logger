@@ -1,6 +1,8 @@
 # aws-lambda-node-logger
 
 [![npm version](https://badge.fury.io/js/%40nekonomokochan%2Faws-lambda-node-logger.svg)](https://badge.fury.io/js/%40nekonomokochan%2Faws-lambda-node-logger)
+[![Build Status](https://travis-ci.org/nekonomokochan/aws-lambda-node-logger.svg?branch=master)](https://travis-ci.org/nekonomokochan/aws-lambda-node-logger)
+[![Coverage Status](https://coveralls.io/repos/github/nekonomokochan/aws-lambda-node-logger/badge.svg)](https://coveralls.io/github/nekonomokochan/aws-lambda-node-logger)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Logging library for AWS Lambda
