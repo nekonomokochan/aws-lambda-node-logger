@@ -5,3 +5,6 @@ dist: trusty
 sudo: false
 cache: yarn
 script: yarn run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+env:
+  global:
+    secure: "ktYM2smlHCcmNK219VcEcD/5Fil6YRcQ6i5UNqmvn0+M7PSF0RmgyNa677oNLKYhtW3S16radUbEZGFHgfKl5xtZSRytJdLV9UnWGZhQ6EKEKlyHfxE4poxb//oLzTh7PZDc4wngNSGNHEd766efvH8wtcfoQPFjm4OwNmMZqGHPo30CNk2zT+PQBwCYrb/utlOUonjUlx+2GEZ8lT7mUO+9tRYxZL1E6gllUahtQlCQWRfOl8HsHH9T3EuxCNx+XaPqN8Y1/kbmizuLEtQtXR/5gUL9iMXb8aRK3Fjiev852f2gA3u/4VORE2MdwknW0e3nSO2y2FTY8bvBUln5TAh32Sz6Wmw+6muJ2Jy1oG0Iqpe/ECMSv2X5shViwFWuskV7pIhbovDPwuAW/cmPortpbELD6unR55i24RUql4Ffgx+Gm3mjXRMXFH+tw3GCzQwzNWbPEiuyiIrf+rMFrZ9XZA/pWTlFJDnvMXegtjJLwHJgZvtJikl6Y3HUDf2meTbwMrTdm/Zc+Kyix4JV2R4/TexChJ9x7J8SD2pTorPAuQJyO2FKZo8CzkiYLfhuV0Pn+en5VmwqKhy6qda5jJ0VgH3QCfOSrvpvh//ThGiGLzVLO3gYlkKHkBRf2XAtkOiqe7QBqYJwe8VfT5Eytffj4tgHmp42wf32Y41Avgc="
