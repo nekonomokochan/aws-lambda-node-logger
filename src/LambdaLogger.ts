@@ -1,6 +1,7 @@
 import * as util from "util";
 import { LambdaLogOutput } from "./LambdaLogOutput";
 import { LogLevel } from "./LogLevel";
+import { SlackNotifier } from "./SlackNotifier";
 
 /**
  * LambdaLogger
@@ -16,10 +17,17 @@ export class LambdaLogger {
   private readonly _logLevel: LogLevel;
 
   /**
-   * @param {LogLevel} logLevel
+   * SlackNotifier
    */
-  constructor(logLevel: LogLevel) {
+  private readonly _slackNotifier: SlackNotifier;
+
+  /**
+   * @param {LogLevel} logLevel
+   * @param {SlackNotifier} slackNotifier
+   */
+  constructor(logLevel: LogLevel, slackNotifier: SlackNotifier) {
     this._logLevel = logLevel;
+    this._slackNotifier = slackNotifier;
   }
 
   /**
@@ -27,6 +35,13 @@ export class LambdaLogger {
    */
   get logLevel(): LogLevel {
     return this._logLevel;
+  }
+
+  /**
+   * @return {SlackNotifier}
+   */
+  get slackNotifier(): SlackNotifier {
+    return this._slackNotifier;
   }
 
   /**
