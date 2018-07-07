@@ -74,7 +74,9 @@ export class LambdaLogger {
     const logLevel = LogLevel[LogLevel.ALERT];
     const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(context);
+    if (this.isOutputLog(LogLevel.ALERT)) {
+      LambdaLogger.log(context);
+    }
 
     return {
       logLevel,
@@ -93,7 +95,9 @@ export class LambdaLogger {
     const logLevel = LogLevel[LogLevel.CRITICAL];
     const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(context);
+    if (this.isOutputLog(LogLevel.CRITICAL)) {
+      LambdaLogger.log(context);
+    }
 
     return {
       logLevel,
@@ -112,7 +116,9 @@ export class LambdaLogger {
     const logLevel = LogLevel[LogLevel.ERROR];
     const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(context);
+    if (this.isOutputLog(LogLevel.ERROR)) {
+      LambdaLogger.log(context);
+    }
 
     return {
       logLevel,
@@ -131,7 +137,9 @@ export class LambdaLogger {
     const logLevel = LogLevel[LogLevel.WARNING];
     const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(context);
+    if (this.isOutputLog(LogLevel.WARNING)) {
+      LambdaLogger.log(context);
+    }
 
     return {
       logLevel,
@@ -150,7 +158,9 @@ export class LambdaLogger {
     const logLevel = LogLevel[LogLevel.NOTICE];
     const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(context);
+    if (this.isOutputLog(LogLevel.NOTICE)) {
+      LambdaLogger.log(context);
+    }
 
     return {
       logLevel,
@@ -169,7 +179,9 @@ export class LambdaLogger {
     const logLevel = LogLevel[LogLevel.INFORMATIONAL];
     const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(context);
+    if (this.isOutputLog(LogLevel.INFORMATIONAL)) {
+      LambdaLogger.log(context);
+    }
 
     return {
       logLevel,
@@ -188,12 +200,22 @@ export class LambdaLogger {
     const logLevel = LogLevel[LogLevel.DEBUG];
     const context = LambdaLogger.createContext(logLevel, value);
 
-    LambdaLogger.log(context);
+    if (this.isOutputLog(LogLevel.DEBUG)) {
+      LambdaLogger.log(context);
+    }
 
     return {
       logLevel,
       context
     };
+  }
+
+  /**
+   * @param {LogLevel} logLevel
+   * @return {boolean}
+   */
+  private isOutputLog(logLevel: LogLevel) {
+    return this.logLevel >= logLevel;
   }
 
   /**

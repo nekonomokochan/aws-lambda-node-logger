@@ -109,7 +109,11 @@ describe("LambdaLogger", () => {
   it("should be able to output Debug logs", () => {
     const messages = ["hello", "world"];
 
-    const lambdaLogger = LambdaLoggerFactory.create(LogLevel.DEBUG, "", "");
+    const lambdaLogger = LambdaLoggerFactory.create(
+      LogLevel.INFORMATIONAL,
+      "",
+      ""
+    );
     const logOutput = lambdaLogger.debug(messages);
 
     const expectedContext = `DEBUG \n ${util.inspect(messages, false, null)}`;
