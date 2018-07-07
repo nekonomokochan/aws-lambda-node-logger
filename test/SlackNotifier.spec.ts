@@ -19,7 +19,7 @@ describe("SlackNotifier", () => {
       TestUtility.extractSlackTokenFromEnv(),
       channel
     );
-    const loggerContext = lambdaLogger.alert(customError);
+    const loggerContext = await lambdaLogger.alert(customError);
 
     const result = await (<any>slackNotifier.notify(loggerContext));
 
@@ -49,7 +49,7 @@ describe("SlackNotifier", () => {
       TestUtility.extractSlackTokenFromEnv(),
       channel
     );
-    const loggerContext = lambdaLogger.alert(customError);
+    const loggerContext = await lambdaLogger.alert(customError);
 
     await slackNotifier
       .notify(loggerContext)

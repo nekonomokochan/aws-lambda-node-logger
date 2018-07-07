@@ -49,13 +49,20 @@ export class LambdaLogger {
    * system is unusable
    *
    * @param value
-   * @returns {LambdaLogOutput}
+   * @param {boolean} isNotifySlack
+   * @return {Promise<LambdaLogOutput>}
    */
-  emergency(value: any): LambdaLogOutput {
+  async emergency(
+    value: any,
+    isNotifySlack: boolean = false
+  ): Promise<LambdaLogOutput> {
     const logLevel = LogLevel[LogLevel.EMERGENCY];
     const context = LambdaLogger.createContext(logLevel, value);
 
     LambdaLogger.log(context);
+    if (isNotifySlack) {
+      await this.slackNotifier.notify({ logLevel, context });
+    }
 
     return {
       logLevel,
@@ -68,14 +75,22 @@ export class LambdaLogger {
    * action must be taken immediately
    *
    * @param value
-   * @returns {LambdaLogOutput}
+   * @param {boolean} isNotifySlack
+   * @return {Promise<LambdaLogOutput>}
    */
-  alert(value: any): LambdaLogOutput {
+  async alert(
+    value: any,
+    isNotifySlack: boolean = false
+  ): Promise<LambdaLogOutput> {
     const logLevel = LogLevel[LogLevel.ALERT];
     const context = LambdaLogger.createContext(logLevel, value);
 
     if (this.isOutputLog(LogLevel.ALERT)) {
       LambdaLogger.log(context);
+
+      if (isNotifySlack) {
+        await this.slackNotifier.notify({ logLevel, context });
+      }
     }
 
     return {
@@ -89,14 +104,22 @@ export class LambdaLogger {
    * critical conditions
    *
    * @param value
-   * @returns {LambdaLogOutput}
+   * @param {boolean} isNotifySlack
+   * @return {Promise<LambdaLogOutput>}
    */
-  critical(value: any): LambdaLogOutput {
+  async critical(
+    value: any,
+    isNotifySlack: boolean = false
+  ): Promise<LambdaLogOutput> {
     const logLevel = LogLevel[LogLevel.CRITICAL];
     const context = LambdaLogger.createContext(logLevel, value);
 
     if (this.isOutputLog(LogLevel.CRITICAL)) {
       LambdaLogger.log(context);
+
+      if (isNotifySlack) {
+        await this.slackNotifier.notify({ logLevel, context });
+      }
     }
 
     return {
@@ -110,14 +133,22 @@ export class LambdaLogger {
    * error conditions
    *
    * @param value
-   * @returns {LambdaLogOutput}
+   * @param {boolean} isNotifySlack
+   * @return {Promise<LambdaLogOutput>}
    */
-  error(value: any): LambdaLogOutput {
+  async error(
+    value: any,
+    isNotifySlack: boolean = false
+  ): Promise<LambdaLogOutput> {
     const logLevel = LogLevel[LogLevel.ERROR];
     const context = LambdaLogger.createContext(logLevel, value);
 
     if (this.isOutputLog(LogLevel.ERROR)) {
       LambdaLogger.log(context);
+
+      if (isNotifySlack) {
+        await this.slackNotifier.notify({ logLevel, context });
+      }
     }
 
     return {
@@ -131,14 +162,22 @@ export class LambdaLogger {
    * warning conditions
    *
    * @param value
-   * @returns {LambdaLogOutput}
+   * @param {boolean} isNotifySlack
+   * @return {Promise<LambdaLogOutput>}
    */
-  warning(value: any): LambdaLogOutput {
+  async warning(
+    value: any,
+    isNotifySlack: boolean = false
+  ): Promise<LambdaLogOutput> {
     const logLevel = LogLevel[LogLevel.WARNING];
     const context = LambdaLogger.createContext(logLevel, value);
 
     if (this.isOutputLog(LogLevel.WARNING)) {
       LambdaLogger.log(context);
+
+      if (isNotifySlack) {
+        await this.slackNotifier.notify({ logLevel, context });
+      }
     }
 
     return {
@@ -152,14 +191,22 @@ export class LambdaLogger {
    * normal but significant condition
    *
    * @param value
-   * @returns {LambdaLogOutput}
+   * @param {boolean} isNotifySlack
+   * @return {Promise<LambdaLogOutput>}
    */
-  notice(value: any): LambdaLogOutput {
+  async notice(
+    value: any,
+    isNotifySlack: boolean = false
+  ): Promise<LambdaLogOutput> {
     const logLevel = LogLevel[LogLevel.NOTICE];
     const context = LambdaLogger.createContext(logLevel, value);
 
     if (this.isOutputLog(LogLevel.NOTICE)) {
       LambdaLogger.log(context);
+
+      if (isNotifySlack) {
+        await this.slackNotifier.notify({ logLevel, context });
+      }
     }
 
     return {
@@ -173,14 +220,22 @@ export class LambdaLogger {
    * informational messages
    *
    * @param value
-   * @returns {LambdaLogOutput}
+   * @param {boolean} isNotifySlack
+   * @return {Promise<LambdaLogOutput>}
    */
-  informational(value: any): LambdaLogOutput {
+  async informational(
+    value: any,
+    isNotifySlack: boolean = false
+  ): Promise<LambdaLogOutput> {
     const logLevel = LogLevel[LogLevel.INFORMATIONAL];
     const context = LambdaLogger.createContext(logLevel, value);
 
     if (this.isOutputLog(LogLevel.INFORMATIONAL)) {
       LambdaLogger.log(context);
+
+      if (isNotifySlack) {
+        await this.slackNotifier.notify({ logLevel, context });
+      }
     }
 
     return {
@@ -194,14 +249,22 @@ export class LambdaLogger {
    * debug-level messages
    *
    * @param value
-   * @returns {LambdaLogOutput}
+   * @param {boolean} isNotifySlack
+   * @return {Promise<LambdaLogOutput>}
    */
-  debug(value: any): LambdaLogOutput {
+  async debug(
+    value: any,
+    isNotifySlack: boolean = false
+  ): Promise<LambdaLogOutput> {
     const logLevel = LogLevel[LogLevel.DEBUG];
     const context = LambdaLogger.createContext(logLevel, value);
 
     if (this.isOutputLog(LogLevel.DEBUG)) {
       LambdaLogger.log(context);
+
+      if (isNotifySlack) {
+        await this.slackNotifier.notify({ logLevel, context });
+      }
     }
 
     return {
