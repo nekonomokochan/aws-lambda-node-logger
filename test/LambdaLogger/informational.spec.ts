@@ -12,7 +12,7 @@ describe("LambdaLogger.informational", () => {
       TestUtility.extractSlackTokenFromEnv(),
       TestUtility.extractSlackChannelFromEnv()
     );
-    const logOutput = await lambdaLogger.informational(message, true);
+    const logOutput = await lambdaLogger.informational(message);
 
     const expectedContext = `INFORMATIONAL \n ${util.inspect(
       message,
