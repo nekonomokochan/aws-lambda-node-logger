@@ -25,9 +25,9 @@ Logging library for AWS Lambda
 
 ```typescript
 import * as lambda from "aws-lambda";
-import { LambdaLogger } from "@nekonomokochan/aws-lambda-node-logger";
+import { LambdaLoggerFactory, LogLevel } from "@nekonomokochan/aws-lambda-node-logger";
 
-export const tsTest = (event: lambda.APIGatewayEvent, context: lambda.Context, callback: lambda.Callback) => {
+export const tsTest = async (event: lambda.APIGatewayEvent, context: lambda.Context, callback: lambda.Callback) => {
   const response = {
     statusCode: 200,
     body: JSON.stringify({
@@ -38,10 +38,40 @@ export const tsTest = (event: lambda.APIGatewayEvent, context: lambda.Context, c
 
   const error = new Error("TypeScript Error Test");
 
-  LambdaLogger.error(error);
-  LambdaLogger.debug(context);
+  const lambdaLogger = LambdaLoggerFactory.create(
+    LogLevel.DEBUG,
+    extractSlackTokenFromEnv(),
+    extractSlackChannelFromEnv()
+  );
+
+  await lambdaLogger.error(error, true);
+  await lambdaLogger.debug(context, true);
 
   callback(undefined, response);
+};
+
+/**
+ * @return {string}
+ */
+const extractSlackTokenFromEnv = (): string => {
+  const slackToken = process.env.AWS_LAMBDA_NODE_LOGGER_SLACK_TOKEN;
+  if (typeof slackToken === "string") {
+    return slackToken;
+  }
+
+  return "";
+};
+
+/**
+ * @return {string}
+ */
+const extractSlackChannelFromEnv = (): string => {
+  const slackChannel = process.env.AWS_LAMBDA_NODE_LOGGER_SLACK_CHANNEL;
+  if (typeof slackChannel === "string") {
+    return slackChannel;
+  }
+
+  return "";
 };
 ```
 
@@ -75,25 +105,55 @@ REPORT RequestId: 1e46b449-6571-11e8-8af3-e7d42a6dbde1	Duration: 0.94 ms	Billed 
 ### Use With JavaScript
 
 ```javascript
-'use strict';
+"use strict";
 
-const awsLambdaNodeLogger = require('@nekonomokochan/aws-lambda-node-logger');
+const awsLambdaNodeLogger = require("@nekonomokochan/aws-lambda-node-logger");
 
-module.exports.jsTest = (event, context, callback) => {
+module.exports.jsTest = async (event, context, callback) => {
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      message: 'JavaScript Test',
+      message: "JavaScript Test",
       input: event,
     }),
   };
 
-  const error = new Error('JavaScript Error Test');
+  const error = new Error("JavaScript Error Test");
 
-  awsLambdaNodeLogger.LambdaLogger.debug(response);
-  awsLambdaNodeLogger.LambdaLogger.error(error);
+  const lambdaLogger = awsLambdaNodeLogger.LambdaLoggerFactory.create(
+    "DEBUG",
+    extractSlackTokenFromEnv(),
+    extractSlackChannelFromEnv()
+  );
+
+  await lambdaLogger.debug(response, true);
+  await lambdaLogger.error(error, true);
 
   callback(null, response);
+};
+
+/**
+ * @return {string}
+ */
+const extractSlackTokenFromEnv = () => {
+  const slackToken = process.env.AWS_LAMBDA_NODE_LOGGER_SLACK_TOKEN;
+  if (typeof slackToken === "string") {
+    return slackToken;
+  }
+
+  return "";
+};
+
+/**
+ * @return {string}
+ */
+const extractSlackChannelFromEnv = () => {
+  const slackChannel = process.env.AWS_LAMBDA_NODE_LOGGER_SLACK_CHANNEL;
+  if (typeof slackChannel === "string") {
+    return slackChannel;
+  }
+
+  return "";
 };
 ```
 
