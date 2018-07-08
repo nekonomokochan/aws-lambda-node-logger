@@ -3,7 +3,7 @@ import { WebAPICallResult, WebClient } from "@slack/client";
 import { LambdaLoggerFactory } from "../src/index";
 import CustomError from "./lib/CustomError";
 import TestUtility from "./lib/TestUtility";
-import { LogLevel } from "src/LogLevel";
+import { LogLevel } from "../src/LogLevel";
 
 describe("SlackNotifier", () => {
   it("should send message to Slack's channel", async () => {
