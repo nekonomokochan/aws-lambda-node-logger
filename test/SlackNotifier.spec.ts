@@ -1,8 +1,9 @@
 import { SlackNotifier } from "../src/SlackNotifier";
 import { WebAPICallResult, WebClient } from "@slack/client";
-import { LambdaLogger } from "src/LambdaLogger";
+import { LambdaLoggerFactory } from "../src/index";
 import CustomError from "./lib/CustomError";
 import TestUtility from "./lib/TestUtility";
+import { LogLevel } from "../src/LogLevel";
 
 describe("SlackNotifier", () => {
   it("should send message to Slack's channel", async () => {
@@ -12,7 +13,13 @@ describe("SlackNotifier", () => {
     const slackNotifier = new SlackNotifier(client, channel);
 
     const customError = new CustomError();
-    const loggerContext = LambdaLogger.alert(customError);
+
+    const lambdaLogger = LambdaLoggerFactory.create(
+      LogLevel.DEBUG,
+      TestUtility.extractSlackTokenFromEnv(),
+      channel
+    );
+    const loggerContext = await lambdaLogger.alert(customError);
 
     const result = await (<any>slackNotifier.notify(loggerContext));
 
@@ -36,7 +43,13 @@ describe("SlackNotifier", () => {
     const slackNotifier = new SlackNotifier(client, channel);
 
     const customError = new CustomError();
-    const loggerContext = LambdaLogger.alert(customError);
+
+    const lambdaLogger = LambdaLoggerFactory.create(
+      LogLevel.DEBUG,
+      TestUtility.extractSlackTokenFromEnv(),
+      channel
+    );
+    const loggerContext = await lambdaLogger.alert(customError);
 
     await slackNotifier
       .notify(loggerContext)

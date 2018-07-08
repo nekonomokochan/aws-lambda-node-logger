@@ -1,2 +1,2 @@
-export * from "./LambdaLogger";
-export * from "./LambdaLogOutput";
+export * from "./LambdaLoggerFactory";
+export * from "./LogLevel";
