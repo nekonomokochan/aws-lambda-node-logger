@@ -121,7 +121,7 @@ module.exports.jsTest = async (event, context, callback) => {
   const error = new Error("JavaScript Error Test");
 
   const lambdaLogger = awsLambdaNodeLogger.LambdaLoggerFactory.create(
-    "DEBUG",
+    awsLambdaNodeLogger.LogLevel.DEBUG,
     extractSlackTokenFromEnv(),
     extractSlackChannelFromEnv()
   );
