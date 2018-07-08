@@ -4,22 +4,6 @@ import { LogLevel } from "../src/LogLevel";
 import TestUtility from "./lib/TestUtility";
 
 describe("LambdaLogger", () => {
-  it("should be able to output Alert logs", async () => {
-    const message = "hello";
-
-    const lambdaLogger = LambdaLoggerFactory.create(
-      LogLevel.DEBUG,
-      TestUtility.extractSlackTokenFromEnv(),
-      TestUtility.extractSlackChannelFromEnv()
-    );
-    const logOutput = await lambdaLogger.alert(message, true);
-
-    const expectedContext = `ALERT \n ${util.inspect(message, false, null)}`;
-
-    expect(logOutput.logLevel).toBe("ALERT");
-    expect(logOutput.context).toBe(expectedContext);
-  });
-
   it("should be able to output Critical logs", async () => {
     const message = "hello";
 
