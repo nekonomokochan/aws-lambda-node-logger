@@ -20,5 +20,6 @@
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
   },
-  "verbose": true
+  "verbose": true,
+  "testEnvironment": "node"
 }
