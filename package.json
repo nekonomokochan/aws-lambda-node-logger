@@ -7,8 +7,8 @@
   "scripts": {
     "test": "jest --config=jest.config.json",
     "test:coverage": "jest --config=jest.config.json --collectCoverage=true",
-    "tslint": "tslint --project tsconfig.json --config tslint.json 'src/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
-    "format": "tslint --project tsconfig.json --config tslint.json --fix 'src/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'",
+    "lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
+    "format": "eslint --fix --ext .js,.ts --ignore-path .gitignore .",
     "build": "rm -rf dist && tsc"
   },
   "repository": {
@@ -30,14 +30,21 @@
   "devDependencies": {
     "@types/jest": "^24.0.13",
     "@types/node": "^12.0.4",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
     "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prefer-arrow": "^1.1.5",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
     "jest": "^24.8.0",
     "prettier": "^1.17.1",
     "ts-jest": "^24.0.2",
-    "tslint": "^5.17.0",
-    "tslint-config-airbnb": "^5.11.1",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.5.1"
   },
   "dependencies": {
