@@ -6,3 +6,6 @@ coverage
 src
 .gitignore
 .git
+.travis.yml
+jest.config.json
+.eslintrc.js
