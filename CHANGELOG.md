@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.1.0 - 2019-06-01
+
+- [Updated npm packages](https://github.com/nekonomokochan/aws-lambda-node-logger/issues/35)
+
 # 1.0.0 - 2018-07-08
 
 - [Added SlackNotifier](https://github.com/nekonomokochan/aws-lambda-node-logger/pull/28)
