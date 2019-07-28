@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.1.1 - 2019-07-28
+
+- [Updated npm packages](https://github.com/nekonomokochan/aws-lambda-node-logger/issues/37)
+
 # 1.1.0 - 2019-06-01
 
 - [Updated npm packages](https://github.com/nekonomokochan/aws-lambda-node-logger/issues/35)
