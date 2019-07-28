@@ -32,7 +32,10 @@ describe("SlackNotifier", () => {
     expect(result.message.type).toBe("message");
     expect(result.message.subtype).toBe("bot_message");
     expect(typeof result.message.ts).toBe("string");
-    expect(result.response_metadata.scopes).toEqual(["identify", "chat:write:bot"]);
+    expect(result.response_metadata.scopes).toEqual([
+      "identify",
+      "chat:write:bot"
+    ]);
     expect(result.response_metadata.acceptedScopes).toEqual(["chat:write:bot"]);
   });
 
