@@ -6,7 +6,7 @@ import TestUtility from "./lib/TestUtility";
 import { LogLevel } from "../src/LogLevel";
 
 describe("SlackNotifier", () => {
-  it("should send message to Slack's channel", async () => {
+  it.only("should send message to Slack's channel", async () => {
     const client = new WebClient(TestUtility.extractSlackTokenFromEnv());
     const channel = TestUtility.extractSlackChannelFromEnv();
 
@@ -32,8 +32,11 @@ describe("SlackNotifier", () => {
     expect(result.message.type).toBe("message");
     expect(result.message.subtype).toBe("bot_message");
     expect(typeof result.message.ts).toBe("string");
-    expect(result.scopes).toEqual(["identify", "chat:write:bot"]);
-    expect(result.acceptedScopes).toEqual(["chat:write:bot"]);
+    expect(result.response_metadata.scopes).toEqual([
+      "identify",
+      "chat:write:bot"
+    ]);
+    expect(result.response_metadata.acceptedScopes).toEqual(["chat:write:bot"]);
   });
 
   it("should return Promise.reject, because the token is invalid", async () => {
