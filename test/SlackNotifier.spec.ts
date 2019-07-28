@@ -23,8 +23,6 @@ describe("SlackNotifier", () => {
 
     const result = await (<any>slackNotifier.notify(loggerContext));
 
-    console.log(result);
-
     expect(result.ok).toBe(true);
     expect(typeof result.channel).toBe("string");
     expect(typeof result.ts).toBe("string");
